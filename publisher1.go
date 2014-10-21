@@ -200,7 +200,8 @@ func connect(config *NetworkConfig) (socket *tls.Conn) {
 			continue
 		}
 
-		tlsconfig.ServerName = host
+//		// Required for go 1.3's strict TLS support
+//		tlsconfig.ServerName = host
 
 		socket = tls.Client(tcpsocket, &tlsconfig)
 		socket.SetDeadline(time.Now().Add(config.timeout))

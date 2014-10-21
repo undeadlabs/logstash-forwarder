@@ -10,7 +10,7 @@ PREFIX?=/opt/logstash-forwarder
 
 FETCH=sh fetch.sh
 MAKE?=make
-CFLAGS+=-Ibuild/include 
+CFLAGS+=-Ibuild/include
 LDFLAGS+=-Lbuild/lib -Wl,-rpath,'$$ORIGIN/../lib'
 
 default: build-all
@@ -21,7 +21,7 @@ include Makefile.ext
 .PHONY: go-check
 go-check:
 	@go version > /dev/null || (echo "Go not found. You need to install go: http://golang.org/doc/install"; false)
-	@go version | grep -q 'go version go1.3' || (echo "Go version 1.3 required, you have a version of go that is unsupported. See http://golang.org/doc/install"; false)
+	@go version | grep -q 'go version go1\.2' || (echo "Go version 1.2 required, you have a version of go that is unsupported. See http://golang.org/doc/install"; false)
 
 
 clean:
